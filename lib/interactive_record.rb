@@ -53,7 +53,7 @@ class InteractiveRecord
     property = option.keys.first
     find = <<-SQL
       SELECT *
-      FROM #{self.class.table_name}
+      FROM #{table_name}
       WHERE #{property} = ?
     SQL
 
