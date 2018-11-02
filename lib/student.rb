@@ -29,6 +29,6 @@ class Student < InteractiveRecord
 
   def col_names_for_insert
     binding.pry
-    self.class.column_names
+    self.class.column_names.delete("id")
   end
 end
