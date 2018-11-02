@@ -12,4 +12,14 @@ class Student < InteractiveRecord
       column["name"]
     end.compact
   end
+
+  self.column_names.each do |column_name|
+    attr_accessor column_name.to_sym
+  end
+
+  def initialize(attributes = {})
+    Student.column_names.each do |attribute|
+      self.send("@#{attribute}=", "attributes[#{attribute}]"")
+    end
+  end
 end
