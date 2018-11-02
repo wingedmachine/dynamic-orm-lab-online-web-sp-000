@@ -19,7 +19,7 @@ class Student < InteractiveRecord
 
   def initialize(attributes = {})
     Student.column_names.each do |attribute|
-      self.send("@#{attribute}=", "attributes[#{attribute}]"")
+      self.send("@#{attribute}=", "attributes[#{attribute}]")
     end
   end
 end
