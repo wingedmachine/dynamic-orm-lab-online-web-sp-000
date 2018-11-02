@@ -50,5 +50,13 @@ class InteractiveRecord
   end
 
   def find_by(option = {})
+    property = option.keys.first.join(, )
+    find = <<-SQL
+      SELECT *
+      FROM #{self.class.table_name}
+      WHERE #{property} = ?
+    SQL
+
+    DB[:conn].execute(find, option[property])
   end
 end
