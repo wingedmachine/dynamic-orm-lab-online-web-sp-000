@@ -45,11 +45,11 @@ class InteractiveRecord
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{self.class.table_name}")[0][0]
   end
 
-  def find_by_name(name)
-    find_by({name: name})
+  def self.find_by_name(name)
+    self.find_by({name: name})
   end
 
-  def find_by(option = {})
+  def self.find_by(option = {})
     property = option.keys.first
     find = <<-SQL
       SELECT *
