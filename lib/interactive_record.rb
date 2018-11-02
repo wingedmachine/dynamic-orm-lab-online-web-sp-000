@@ -46,9 +46,9 @@ class InteractiveRecord
   end
 
   def find_by_name(name)
-
+    find_by({name: name})
   end
 
-  def find_by
+  def find_by(option = {})
   end
 end
