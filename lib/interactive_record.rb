@@ -32,6 +32,6 @@ class InteractiveRecord
   def values_for_insert
     col_names = self.class.column_names
     col_names.delete("id")
-    values = col_names.map { |attribute| "'#{self.send(attribute)'"" }
+    values = col_names.map { |attribute| "'#{self.send(attribute)'" }
   end
 end
