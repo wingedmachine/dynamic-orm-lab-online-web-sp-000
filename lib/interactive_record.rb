@@ -34,4 +34,11 @@ class InteractiveRecord
     col_names.delete("id")
     col_names.map { |attribute| "'#{self.send(attribute)}'" }.join(", ")
   end
+
+  def save
+    save = <<-SQL
+      INSERT INTO #{self.class.table_name} #{col_names_for_insert}
+        VALUES (#{values_for_insert})
+    SQL
+  end
 end
