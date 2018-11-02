@@ -50,7 +50,7 @@ class InteractiveRecord
   end
 
   def find_by(option = {})
-    property = option.keys.first.join(, )
+    property = option.keys.first
     find = <<-SQL
       SELECT *
       FROM #{self.class.table_name}
