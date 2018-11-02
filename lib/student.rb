@@ -10,7 +10,7 @@ class Student < InteractiveRecord
   def self.column_names
     DB[:conn].execute("PRAGMA table_info('#{table_name}')").map do |column|
       binding.pry
-      column[:name]
+      column["name"]
     end.compact
   end
 end
