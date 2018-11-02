@@ -21,5 +21,6 @@ class Student < InteractiveRecord
     Student.column_names.each do |attribute|
       self.send("@#{attribute}=", "attributes[#{attribute}]")
     end
+    self
   end
 end
