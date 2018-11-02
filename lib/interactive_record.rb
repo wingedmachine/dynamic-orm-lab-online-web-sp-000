@@ -38,7 +38,7 @@ class InteractiveRecord
   def save
     save = <<-SQL
       INSERT INTO #{self.class.table_name} (#{col_names_for_insert})
-        VALUES (#{values_for_inserts})
+        VALUES (#{values_for_insert})
     SQL
 binding.pry
     DB[:conn].execute(save)
