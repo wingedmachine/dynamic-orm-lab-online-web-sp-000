@@ -30,6 +30,10 @@ class Student < InteractiveRecord
   def col_names_for_insert
     col_names = self.class.column_names
     col_names.delete("id")
-    col_names.join(", ")
+    col_names
+  end
+
+  def values_for_insert
+
   end
 end
