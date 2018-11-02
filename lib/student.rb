@@ -8,7 +8,7 @@ class Student < InteractiveRecord
   end
 
   def self.column_names
-    DB[:conn].execute("PRAGMA table_info").map do |column|
+    DB[:conn].execute("PRAGMA table_info('#{table_name}')").map do |column|
       column[:name]
   end.compact
 end
