@@ -37,10 +37,10 @@ class InteractiveRecord
 
   def save
     save = <<-SQL
-      INSERT INTO #{self.class.table_name} #{col_names_for_insert}
+      INSERT INTO #{self.class.table_name} (#{col_names_for_insert})
         VALUES (?)
     SQL
-binding.pry
+
     DB[:conn].execute(save, values_for_insert)
   end
 end
